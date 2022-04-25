@@ -51,11 +51,11 @@ def dataanalysis():
             model = AutoModelForSequenceClassification.from_pretrained('nlptown/bert-base-multilingual-uncased-sentiment')
 
             # Text cleaning and creating new column
-            df['Text_update'] = df.Text.apply(lambda x: preprocessText.preprocess_text(x))
-            df['Text_update'] = df.Text.apply(lambda x: preprocessText.preprocess_text(x))
+            df['Text_update'] = df["Text"].apply(lambda x: preprocessText(x).preprocess_text())
+            df['Text_update'] = df["Text"].apply(lambda x: preprocessText(x).preprocess_text())
 
             # Filtering Data
-            df=df[df.Text_update!=""]
+            df=df[df["Text_update"]!=""]
             df=df[df.Star<=2].reset_index()
             df.drop(columns="index",inplace=True)
 
@@ -86,11 +86,11 @@ def dataanalysis():
             model = AutoModelForSequenceClassification.from_pretrained('nlptown/bert-base-multilingual-uncased-sentiment')
 
             # Text cleaning and creating new column
-            df['Text_update'] = df.Text.apply(lambda x: preprocessText.preprocess_text(x))
-            df['Text_update'] = df.Text.apply(lambda x: preprocessText.preprocess_text(x))
+            df['Text_update'] = df["Text"].apply(lambda x: preprocessText(x).preprocess_text())
+            df['Text_update'] = df["Text"].apply(lambda x: preprocessText(x).preprocess_text())
 
             # Filtering Data
-            df=df[df.Text_update!=""]
+            df=df[df["Text_update"]!=""]
             df=df[df.Star<=2].reset_index()
             df.drop(columns="index",inplace=True)
 

@@ -13,7 +13,7 @@ class preprocessText:
 
         # Removing unwonted text
         try:
-
+            text = self.text
             text = str(text)
             text = [i if i.isalpha() else i if i.isalnum() == False else "" for i in text.split()]
             text = " ".join(text)
