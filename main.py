@@ -9,7 +9,6 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
 import requests
 from bs4 import BeautifulSoup
-import nltk
 
 # Importing Libs
 # Data manupulation
@@ -17,15 +16,6 @@ import pandas as pd
 import numpy as np
 import re
 import string
-
-
-# Text Processing Libs.
-from nltk.corpus import stopwords
-from nltk import word_tokenize
-from nltk.stem import PorterStemmer
-from nltk.stem import WordNetLemmatizer
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.model_selection import train_test_split
 
 os.putenv('LANG', 'en_US.UTF-8')
 os.putenv('LC_ALL', 'en_US.UTF-8')
