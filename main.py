@@ -9,7 +9,6 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
 import requests
 from bs4 import BeautifulSoup
-import re
 import nltk
 
 # Importing Libs
@@ -79,8 +78,9 @@ def dataanalysis():
             result = df[df['diff'] != 0]
             result.reset_index(inplace=True)
             result.drop(columns=["index", "sentiment", "old", "new", "diff", "Text_update"], inplace=True)
+            result=result.head().to_json(orient="records")
 
-            return Response(result)
+            return Response(json.loads(result))
     except Exception as e:
         raise e
 

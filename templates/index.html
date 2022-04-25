@@ -178,7 +178,7 @@
 				var path = $("#csvfile").val();
 				$.ajax({
 					//change url below
-					url : "/predict",
+					url : "/dataanalysis",
 					type: "POST",
 					data: {filepath:path},
 					success: function(response){
@@ -193,7 +193,7 @@
 				var path = $(this).attr("data-path");
 				$.ajax({
 					//change url below
-					url : "/predict",
+					url : "/dataanalysis",
 					type: "POST",
 					data: {filepath:path},
 					success: function(response){
