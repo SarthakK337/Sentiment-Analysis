@@ -131,7 +131,8 @@
 					<form method="post" id="datafetch_form" enctype="multipart/form-data">
 						<div class="form-group files color">
 							<!-- <input type="text" name = "csvfile" id="csvfile" class="form-control" placeholder="Enter absolute file path." required> -->
-							<input type="file" name = "csvfile" id="csvfile", required>
+<!--							<input type="file" name = "csvfile" id="csvfile", required>-->
+							<input id="fileSelect" type="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
 						</div>
 						<div class=""><button class="form-control btn-primary" id="customfile">Custom File Predict</button></div>
 					</form>
@@ -182,7 +183,7 @@
 					type: "POST",
 					data: {filepath:path},
 					success: function(response){
-						$(".json-result").html('<p>"Prediction File created at !!!Prediction_Output_File/Predictions.csvand few of the predictions are"</p><pre>' + response + '</pre>');	
+						$(".json-result").html('<p>"Prediction File created at !!!Prediction_Output_File/Predictions.csvand few of the predictions are"</p><pre>' + response + '</pre>');
 						$('#loading').hide();
 					}
 				});
