@@ -53,3 +53,4 @@ typing-extensions==3.7.4.3
 pyparsing==2.4.6
 six==1.14.0
 click==7.0
+pytest==6.2.2
