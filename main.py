@@ -36,38 +36,38 @@ def dataanalysis():
         if (request.method == "POST"):
             # Load data convert into dataframe
             path = request.files['file1']
-            # df = pd.read_excel(path)
-            #
-            #
-            # # Initialization token
-            # tokenizer = AutoTokenizer.from_pretrained('nlptown/bert-base-multilingual-uncased-sentiment')
-            # model = AutoModelForSequenceClassification.from_pretrained('nlptown/bert-base-multilingual-uncased-sentiment')
-            #
-            # # Text cleaning and creating new column
-            # df['Text_update'] = df["Text"].apply(lambda x: preprocessText(x).preprocess_text())
-            # df['Text_update'] = df["Text"].apply(lambda x: preprocessText(x).preprocess_text())
-            #
-            # # Filtering Data
-            # df=df[df["Text_update"]!=""]
-            # df=df[df.Star<=2].reset_index()
-            # df.drop(columns="index",inplace=True)
-            #
-            # # Predicting sentiment using pre-trained model
-            # df['sentiment'] = df['Text_update'].apply(lambda x: sentimentScore(x, tokenizer, model).sentiment_score())
-            #
-            # # Classifying sentiment into 1 and 0
-            # df["old"] = df.Star.apply(lambda x: 0 if x <= 2 else 1)
-            # df["new"] = df.sentiment.apply(lambda x: 0 if x <= 2 else 1)
-            # df["diff"] = df.old - df.new
-            #
-            # # Filter out results
-            # result = df[df['diff'] != 0]
-            # result.reset_index(inplace=True)
-            # result.drop(columns=["index", "sentiment", "old", "new", "diff", "Text_update"], inplace=True)
-            # result.set_index('ID', inplace=True)
-            # result = result.to_html()
+            df = pd.read_excel(path)
 
-            return "Hi"
+
+            # Initialization token
+            tokenizer = AutoTokenizer.from_pretrained('nlptown/bert-base-multilingual-uncased-sentiment')
+            model = AutoModelForSequenceClassification.from_pretrained('nlptown/bert-base-multilingual-uncased-sentiment')
+
+            # Text cleaning and creating new column
+            df['Text_update'] = df["Text"].apply(lambda x: preprocessText(x).preprocess_text())
+            df['Text_update'] = df["Text"].apply(lambda x: preprocessText(x).preprocess_text())
+
+            # Filtering Data
+            df=df[df["Text_update"]!=""]
+            df=df[df.Star<=2].reset_index()
+            df.drop(columns="index",inplace=True)
+
+            # Predicting sentiment using pre-trained model
+            df['sentiment'] = df['Text_update'].apply(lambda x: sentimentScore(x, tokenizer, model).sentiment_score())
+
+            # Classifying sentiment into 1 and 0
+            df["old"] = df.Star.apply(lambda x: 0 if x <= 2 else 1)
+            df["new"] = df.sentiment.apply(lambda x: 0 if x <= 2 else 1)
+            df["diff"] = df.old - df.new
+
+            # Filter out results
+            result = df[df['diff'] != 0]
+            result.reset_index(inplace=True)
+            result.drop(columns=["index", "sentiment", "old", "new", "diff", "Text_update"], inplace=True)
+            result.set_index('ID', inplace=True)
+            result = result.to_html()
+
+            return result
 
 
         else:
