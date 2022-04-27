@@ -7,9 +7,6 @@ import flask_monitoringdashboard as dashboard
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from sentiment_Score import sentimentScore
 from preprocess_Text import preprocessText
-
-# Importing Libs
-# Data manupulation
 import pandas as pd
 
 os.putenv('LANG', 'en_US.UTF-8')
@@ -48,8 +45,8 @@ def dataanalysis():
             df['Text_update'] = df["Text"].apply(lambda x: preprocessText(x).preprocess_text())
 
             # Filtering Data
-            df=df[df["Text_update"]!=""]
-            df=df[df.Star<=2].reset_index()
+            df=df[df["Text_update"]!=""]                    # removing blank rows
+            df=df[df.Star<=2].reset_index()                 # taking data for stars <= 2
             df.drop(columns="index",inplace=True)
 
             # Predicting sentiment using pre-trained model
@@ -72,10 +69,10 @@ def dataanalysis():
 
         else:
             print('Nothing Matched')
-    except ValueError:
-        return Response("Error Occurred! %s" % ValueError)
-    except KeyError:
-        return Response("Error Occurred! %s" % KeyError)
+    # except ValueError:
+    #     return Response("Error Occurred! %s" % ValueError)
+    # except KeyError:
+    #     return Response("Error Occurred! %s" % KeyError)
     except Exception as e:
         return Response("Error Occurred! %s" % e)
 

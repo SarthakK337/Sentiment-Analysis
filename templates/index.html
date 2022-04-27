@@ -114,7 +114,6 @@
 	<!-- Navigation -->
 	<nav class="navbar navbar-light bg-info static-top">
 		<div class="container-fluid">
-			<!-- <a class="navbar-brand" href=""><img src="https://github.com/SarthakK337/WaferFaultDetection_circleci/blob/main/Img/IMG_20220424_191848.png" alt="Project" /></a> -->
 			<h1 class="text-light mx-auto">Project Submission</h1>
 		</div>
 	</nav>
@@ -128,33 +127,21 @@
 			<div class="row">
 				<div class="mx-auto my-auto" >
 					<br/>
-<!--					<form method="post" id="datafetch_form">-->
-<!--						<div class="form-group files color">-->
-<!--&lt;!&ndash;							<input type="text" name = "csvfile" id="csvfile" class="form-control" placeholder="Enter absolute file path." required>&ndash;&gt;-->
-<!--							<input type="text" name = "csvfile" id="csvfile" required>-->
-<!--&lt;!&ndash;							<input id="fileSelect" type="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />&ndash;&gt;-->
-<!--						</div>-->
-<!--						<div class=""><button class="form-control btn-primary" id="customfile">Custom File Predict</button></div>-->
-<!--					</form>-->
 					<form action="/dataanalysis" method="post" enctype="multipart/form-data">
 						<input type="file" name="file1">
-
-						<button type="submit" class="form-control btn-primary"> Submit </button>
+						<br/>
+						<button type="submit" class="form-control btn-primary" id="customfile"> Submit </button>
+						<br/>
+						<br/>
+						<br/>
+						<p>Processing might take a while...</p>
+						<br/>
+						<p>You might consider taking a coffee break..!!!</p>
 					</form>
 				</div>
 			</div>
 			<br/>
 			<br/>
-<!--			<div class="row">-->
-<!--				<div class="res-container my-auto mx-auto col">-->
-<!--					<div class="result-box shadow rounded-lg">-->
-<!--						<h6 class="title">Results</h6>-->
-<!--						<div class="json-result">-->
-<!--							-->
-<!--						</div>-->
-<!--					</div>-->
-<!--				</div>-->
-			</div>						
 		</div>
 	</section>
 
@@ -163,38 +150,12 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-lg-6 h-100 text-center my-auto mx-auto">
+					<p class="list-inline-item"><a href="https://github.com/SarthakK337/Sentiment-Analysis">Link to Github Repository</a></p>
 					<p class="text-muted small mb-2 mb-lg-0">&copy; Sarthak Khokhar</p>
 				</div>
 			</div>
 		</div>
 	</footer>
-	
-	
-<!--	<div id="loading"><div class="loader"></div></div>-->
-	<!-- Bootstrap core JavaScript -->
-<!--	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
-<!--	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>-->
-<!--	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>-->
-<!--	<script>-->
-<!--		$(document).ready(function(){-->
-<!--			$('#loading').hide();-->
-<!--			$("#customfile").click(function(e){-->
-<!--				e.preventDefault();-->
-<!--				$('#loading').show();-->
-<!--				var path = $("#csvfile").val();-->
-<!--				$.ajax({-->
-<!--					//change url below-->
-<!--					url : "/dataanalysis",-->
-<!--					type: "POST",-->
-<!--					data: {filepath:path},-->
-<!--					success: function(response){-->
-<!--						$(".json-result").html('<p>"Prediction File created at !!!Prediction_Output_File/Predictions.csv and few of the predictions are"</p><pre>' + response + '</pre>');	-->
-<!--						$('#loading').hide();-->
-<!--					}-->
-<!--				});-->
-<!--			});-->
-<!--		});-->
-<!--	</script>-->
 </body>
 
 </html>
