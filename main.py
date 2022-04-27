@@ -36,7 +36,7 @@ def dataanalysis():
         if (request.method == "POST"):
             # Load data convert into dataframe
             path = request.files['file1']
-            df = pd.read_excel(path)
+            df = pd.read_csv(path)
 
 
             # Initialization token
